@@ -76,7 +76,7 @@ export default function DemoPage() {
   const [isDesktop, setIsDesktop] = useState(false);
   const [completed, setCompleted] = useState(false);
   const [transcript, setTranscript] = useState("");
-  const [generatedFeedback, setGeneratedFeedback] = useState("");
+  // const [generatedFeedback, setGeneratedFeedback] = useState("");
 
   useEffect(() => {
     setIsDesktop(window.innerWidth >= 768);
@@ -203,78 +203,12 @@ export default function DemoPage() {
 
       setStatus("Transcribing");
 
-      const upload = await fetch(
-        `/api/transcribe?question=${encodeURIComponent(question)}`,
-        {
-          method: "POST",
-          body: formData,
-        }
-      );
-      const results = await upload.json();
-
-      if (upload.ok) {
-        setIsSuccess(true);
-        setSubmitting(false);
-
-        if (results.error) {
-          setTranscript(results.error);
-        } else {
-          setTranscript(results.transcript);
-        }
-
-        console.log("Uploaded successfully!");
-
-        await Promise.allSettled([
-          new Promise((resolve) => setTimeout(resolve, 800)),
-        ]).then(() => {
-          setCompleted(true);
-          console.log("Success!");
-        });
-
-        if (results.transcript.length > 0) {
-          const prompt = `Please give feedback on the following interview question: ${question} given the following transcript: ${
-            results.transcript
-          }. ${
-            selected.name === "Behavioral"
-              ? "Please also give feedback on the candidate's communication skills. Make sure their response is structured (perhaps using the STAR or PAR frameworks)."
-              : "Please also give feedback on the candidate's communication skills. Make sure they accurately explain their thoughts in a coherent way. Make sure they stay on topic and relevant to the question."
-          } \n\n\ Feedback on the candidate's response:`;
-
-          setGeneratedFeedback("");
-          const response = await fetch("/api/generate", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({
-              prompt,
-            }),
-          });
-
-          if (!response.ok) {
-            throw new Error(response.statusText);
-          }
-
-          // This data is a ReadableStream
-          const data = response.body;
-          if (!data) {
-            return;
-          }
-
-          const reader = data.getReader();
-          const decoder = new TextDecoder();
-          let done = false;
-
-          while (!done) {
-            const { value, done: doneReading } = await reader.read();
-            done = doneReading;
-            const chunkValue = decoder.decode(value);
-            setGeneratedFeedback((prev: any) => prev + chunkValue);
-          }
-        }
-      } else {
-        console.error("Upload failed.");
-      }
+      await Promise.allSettled([
+        new Promise((resolve) => setTimeout(resolve, 800)),
+      ]).then(() => {
+        setCompleted(true);
+        console.log("Success!");
+      });
 
       setTimeout(function () {
         setRecordedChunks([]);
@@ -299,6 +233,8 @@ export default function DemoPage() {
       setLoading(false);
       setCameraLoaded(true);
     }, 1000);
+
+   
   };
 
   return (
@@ -444,14 +380,14 @@ export default function DemoPage() {
                   </p>
                 </div>
                 <div className="mt-8">
-                  <h2 className="text-xl font-semibold text-left text-[#1D2B3A] mb-2">
+                  {/* <h2 className="text-xl font-semibold text-left text-[#1D2B3A] mb-2">
                     Feedback
-                  </h2>
-                  <div className="mt-4 text-sm flex gap-2.5 rounded-lg border border-[#EEEEEE] bg-[#FAFAFA] p-4 leading-6 text-gray-900 min-h-[100px]">
+                  </h2> */}
+                  {/* <div className="mt-4 text-sm flex gap-2.5 rounded-lg border border-[#EEEEEE] bg-[#FAFAFA] p-4 leading-6 text-gray-900 min-h-[100px]">
                     <p className="prose prose-sm max-w-none">
                       {generatedFeedback}
                     </p>
-                  </div>
+                  </div> */}
                 </div>
               </motion.div>
             </div>
