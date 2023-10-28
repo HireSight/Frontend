@@ -1,6 +1,9 @@
 import "../styles/globals.css";
 import { Metadata } from "next";
 
+
+import { Suspense } from "react";
+
 export const metadata: Metadata = {
   title: "Liftoff - AI-Powered Mock Interviews",
   openGraph: {
@@ -32,7 +35,9 @@ export default async function RootLayout({
 }) {
   return (
     <html lang="en">
+
       <body className="scroll-smooth antialiased [font-feature-settings:'ss01']">
+      
         {children}
       </body>
     </html>

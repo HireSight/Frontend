@@ -1,37 +1,23 @@
 'use client';
-
 import { Card, Metric, Text, Title, BarList, Flex, Grid , DonutChart } from '@tremor/react';
 
-
 import Chart from '../components/Chart';
-const cities = [
-    {
-      name: "New York",
-      sales: 9800,
-    },
-    {
-      name: "London",
-      sales: 4567,
-    },
-    {
-      name: "Hong Kong",
-      sales: 3908,
-    },
-    {
-      name: "San Francisco",
-      sales: 2400,
-    },
-    {
-      name: "Singapore",
-      sales: 1908,
-    },
-    {
-      name: "Zurich",
-      sales: 1398,
-    },
-  ];
+const originalData = {
+  "Witty": 0.035376260669858675,
+  "Bitter": 0.036392864943330785,
+  "Amused": 0.04266253643811795,
+  "Caustic": 0.24300470993096016,
+  "Aggressive": 0.2784996420844091
+};
+
+const convertedData = Object.entries(originalData).map(([key, value]) => {
+  return {
+      name: key,
+      sales: value
+  };
+});
   
-  const valueFormatter = (number: number): string => `$ ${new Intl.NumberFormat("us").format(number).toString()}`;
+const valueFormatter = (number: number): string => `$ ${new Intl.NumberFormat("us").format(number).toString()}`;
 
 
 const website = [
@@ -75,9 +61,11 @@ const data = [
   }
 ];
 
-export default function PlaygroundPage() {
+export default  function PlaygroundPage() {
+  
   return (
     <main className="p-4 md:p-10 mx-auto max-w-7xl">
+    
       <Grid numItemsSm={2} numItemsLg={3} className="gap-6">
         {data.map((item) => (
           <Card key={item.category}>
@@ -105,33 +93,12 @@ export default function PlaygroundPage() {
         ))}
       </Grid>
       <Grid numItemsSm={2} numItemsLg={3} className="gap-6">
+
       <Card className="max-w-lg">
         <Title>Sales</Title>
         <DonutChart
           className="mt-6"
-          data={cities}
-          category="sales"
-          index="name"
-          valueFormatter={valueFormatter}
-          colors={["slate", "violet", "indigo", "rose", "cyan", "amber"]}
-        />
-      </Card>
-      <Card className="max-w-lg">
-        <Title>Sales</Title>
-        <DonutChart
-          className="mt-6"
-          data={cities}
-          category="sales"
-          index="name"
-          valueFormatter={valueFormatter}
-          colors={["slate", "violet", "indigo", "rose", "cyan", "amber"]}
-        />
-      </Card>
-      <Card className="max-w-lg">
-        <Title>Sales</Title>
-        <DonutChart
-          className="mt-6"
-          data={cities}
+          data={convertedData}
           category="sales"
           index="name"
           valueFormatter={valueFormatter}
@@ -140,6 +107,8 @@ export default function PlaygroundPage() {
       </Card>
       </Grid>
       <Chart/>
+
+
     </main>
   );
 }
