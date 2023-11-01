@@ -4,6 +4,9 @@ import Link from "next/link";
 import { AnimatePresence, motion } from "framer-motion";
 import { gradient } from "@/components/Gradient";
 import { useEffect } from "react";
+import { Dialog } from '@headlessui/react'
+import { signIn, signOut } from 'next-auth/react';
+import Github from "next-auth/providers/github";
 
 
 export default function Home() {
@@ -14,7 +17,6 @@ export default function Home() {
   return (
     <AnimatePresence>
       <div className="min-h-[100vh] sm:min-h-screen w-screen flex flex-col relative bg-[#F2F3F5] font-inter overflow-hidden">
-        
         <svg
           style={{ filter: "contrast(125%) brightness(110%)" }}
           className="fixed z-[1] w-full h-full opacity-[35%]"
@@ -60,8 +62,8 @@ export default function Home() {
             }}
             className="relative md:ml-[-10px] md:mb-[37px] font-extrabold text-[16vw] md:text-[130px] font-inter text-[#1E2B3A] leading-[0.9] tracking-[-2px] z-[100]"
           >
-            Elevate your <br />
-            tech <span className="text-[#407BBF]">interviews</span>
+            One stop <br />
+            solution for <br /> <span className="text-[#407BBF] "> interviews</span>
             <span className="font-inter text-[#407BBF]">.</span>
           </motion.h1>
           <motion.div
@@ -135,7 +137,7 @@ export default function Home() {
                     ></path>
                   </svg>
                 </span>
-                Know About us
+                Know About us 
               </Link>
             </motion.div>
             <motion.div
@@ -148,13 +150,13 @@ export default function Home() {
               }}
             >
               <Link
-                href="/demo"
+                href="/report"
                 className="group rounded-full px-4 py-2 text-[13px] font-semibold transition-all flex items-center justify-center bg-[#f5f7f9] text-[#1E2B3A] no-underline active:scale-95 scale-100 duration-75"
                 style={{
                   boxShadow: "0 1px 1px #0c192714, 0 1px 3px #0c192724",
                 }}
               >
-                <span className="mr-2"> Try it out </span>
+                <span className="mr-2">Sign in or create an account</span>
                 <svg
                   className="w-5 h-5"
                   viewBox="0 0 24 24"
