@@ -1,6 +1,6 @@
 <a href="https://demo.useliftoff.com">
   <img alt="Liftoff – AI-Powered Mock Interviews" src="https://demo.useliftoff.com/opengraph-image">
-  <h1 align="center">Liftoff Interviews</h1>
+  <h1 align="center">Hiresight</h1>
 </a>
 
 <p align="center">
@@ -26,7 +26,7 @@
 
 ## Introduction
 
-Liftoff is an interview preparation tool that provides AI feedback on your mock interviews.
+Hiresight is an interview preparation tool that provides AI feedback on your mock interviews.
 
 ## One-click Deploy
 
@@ -76,10 +76,13 @@ npx create-next-app liftoff --example "https://github.com/Tameyer41/liftoff"
 
 ## How it all works
 
-Liftoff uses FFmpeg to transcode the raw video into MP3. Chrome, Safari, and Firefox all record with different codecs, and FFmpeg is great for standardizing them.
+Hiresight uses FFmpeg to transcode the raw video into MP3. Chrome, Safari, and Firefox all record with different codecs, and FFmpeg is great for standardizing them.
 
-We then send the audio directly to be transcribed by OpenAI's Whisper endpoint, and then stream feedback from the edge using OpenAI's gpt-3.5-turbo.
+We then send the video file directly to our AI model which is capable of performing analysis upon the video to check whether the candidate is confident , proficient and many other factors based on which it generates a report for the candidate
 
-## Author
+## Our Team
 
-- Tyler Meyer ([@tmeyer_me](https://twitter.com/tmeyer_me))
+- Aviral Shukla
+- Chirag Birla
+- Diya Shah
+- Rudransh Shinghal
