@@ -8,11 +8,11 @@
 </p>
 
 <p align="center">
-  <a href="https://twitter.com/Ansh190204">
+  <a href="https://twitter.com/Rudransh190204">
     <img src="https://img.shields.io/twitter/follow/tmeyer_me?style=flat&label=Follow&logo=twitter&color=0bf&logoColor=fff" alt="Tyler Meyer's follower count" />
   </a>
   <a href="https://github.com/HireSight/Frontend">
-    <img src="https://img.shields.io/github/stars/Tameyer41/liftoff?label=Tameyer41%2Fliftoff" alt="Liftoff repo star count" />
+    <img src="https://img.shields.io/github/stars/HireSight/Frontend?label=Tameyer41%2Fliftoff" alt="Liftoff repo star count" />
   </a>
 </p>
 
