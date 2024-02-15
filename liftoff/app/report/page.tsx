@@ -1,6 +1,6 @@
 "use client";
 
-import { Card, Metric, Text, Title, BarList, Flex, Grid ,ProgressCircle ,  Callout } from "@tremor/react";
+import { Card, Metric, Text, Title, BarList, Flex, Grid ,ProgressCircle,  Callout } from "@tremor/react";
 import Chart from "./chart";
 
 
@@ -9,19 +9,19 @@ const website = [
   { name: "Diplomatic", value:0.2504119293188701  },
   { name: "Direct", value: 0.14542083919398957 },
   { name: "informative", value:0.12896637759232712  },
-  { name: "Thoughtful", value: 0.12359616252833504 },
+  { name: "Thoughtful",value: 0.12359616252833504 },
 ];
 
 
 // Generate 40 random numbers with higher precision
-const randomNumbers = Array.from({ length: 40 }, () => Math.random());
+const randomNumbers = Array.from({ length: 40 },() => Math.random());
 
 // Update the values of the JSON objects in the data array
 website.forEach((item, index) => {
   item.value = randomNumbers[index];
 });
 
-// Add the updated data array to an array named 'good'
+// Add the updated data array to an array named &apos;good&apos;
 const good = [...website];
 
 console.log(good);
@@ -31,7 +31,7 @@ console.log(good);
 const data = [
   {
     category: "Website",
-    stat: "10,234",
+    stat: "10234",
     data: good,
   },
 
@@ -67,10 +67,10 @@ export default function PlaygroundPage() {
         </Card>
         <div className="flex flex-col gap-y-5">
           strengths: 
-          Clear and Accurate Explanation: The candidate's response is a strength as they provide a clear and accurate explanation of the difference between the time complexity of a map and an unordered_map. They correctly state that a map  is typically implemented as a Red-Black Tree, which ensures logarithmic time complexity for insertion, deletion, and search operations. On the other hand, an unordered_map is usually implemented as a hash table, resulting in average constant time complexity for these operations 
+          Clear and Accurate Explanation: The candidate&apos;s response is a strength as they provide a clear and accurate explanation of the difference between the time complexity of a map and an unordered_map. They correctly state that a map  is typically implemented as a Red-Black Tree&lsquo; which ensures logarithmic time complexity for insertion&lsquo; deletion&lsquo; and search operations. On the other hand&lsquo; an unordered_map is usually implemented as a hash table&lsquo; resulting in average constant time complexity for these operations 
           <div >
           Areas for Improvement: 
-          While the candidate provides an accurate explanation, they could enhance their response by offering more context or examples. For instance, they might explain that the logarithmic time complexity of the map is suitable for scenarios where data needs to be ordered, while the constant time complexity of the unordered_map is advantageous in cases where ordering is not a requirement. These examples would make the explanation more vivid and relatable, especially for interviewers who might not be as technically inclined.
+          While the candidate provides an accurate explanation&lsquo; they could enhance their response by offering more context or examples. For instance&lsquo; they might explain that the logarithmic time complexity of the map is suitable for scenarios where data needs to be ordered&lsquo; while the constant time complexity of the unordered_map is advantageous in cases where ordering is not a requirement. These examples would make the explanation more vivid and relatable&lsquo; especially for interviewers who might not be as technically inclined.
           </div>
          
         </div>
@@ -81,7 +81,7 @@ export default function PlaygroundPage() {
       radius={140}
       strokeWidth={25}
       className="py-8"
-      tooltip="radius: 25, strokeWidth: 6"
+      tooltip="radius: 25&lsquo; strokeWidth: 6"
       color="red"
     >
       <span className="h-100 w-100 rounded-full bg-fuchsia-100 flex items-center justify-center text-sm text-fuchsia-500 font-medium">
