@@ -9,8 +9,6 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@cloudinary/react": "^1.11.2",
-    "@cloudinary/url-gen": "^1.12.0",
     "@ffmpeg/core": "^0.11.0",
     "@ffmpeg/ffmpeg": "^0.11.6",
     "@headlessui/react": "^1.7.17",
@@ -21,7 +19,6 @@
     "@types/react-dom": "18.2.4",
     "@upstash/ratelimit": "^0.4.2",
     "@upstash/redis": "^1.20.6",
-    "cloudinary": "^1.41.0",
     "clsx": "^1.2.1",
     "encoding": "^0.1.13",
     "eslint": "8.41.0",
@@ -32,11 +29,9 @@
     "gsap": "^3.12.2",
     "next": "13.4.4",
     "next-auth": "^4.24.4",
-    "next-cloudinary": "^4.28.0",
     "openai": "^3.2.1",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "react-gsap": "^3.2.1",
     "react-player": "^2.13.0",
     "react-webcam": "^7.0.1",
     "typescript": "5.0.4",
