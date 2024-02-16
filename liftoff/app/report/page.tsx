@@ -2,6 +2,7 @@
 
 import { Card, Metric, Text, Title, BarList, Flex, Grid ,ProgressCircle,  Callout } from "@tremor/react";
 import Chart from "./chart";
+import React, { useState, useEffect } from 'react';
 
 
 const website = [
@@ -39,6 +40,29 @@ const data = [
 
 export default function PlaygroundPage() {
   const value = 72;
+
+
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 600000); // 600000 milliseconds = 10 minutes
+
+    return () => clearTimeout(timer); // This will clear the timer if the component unmounts before the timer finishes
+  }, []);
+
+  if (isLoading) {
+    return (
+      <div className="flex flex-col justify-center items-center min-h-screen space-y-8">
+        <div className="w-16 h-16 border-t-4 border-loader-blue bg-loader-background rounded-full animate-spin-slow"></div>
+        <div className="text-center">
+          <p className="font-serif text-2xl">"Confidence is the key to success."</p>
+          <p className="font-serif text-2xl">"The only way to do great work is to love what you do."</p>
+        </div>
+      </div>
+    );
+  }
   
   return (
     <main className="p-4 md:p-10 mx-auto max-w-7xl">
