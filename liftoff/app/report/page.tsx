@@ -27,21 +27,36 @@ const good = [...website];
 
 console.log(good);
 
+//   const [isLoading, setIsLoading] = useState(true);
+
+//   useEffect(() => {
+//     const timer = setTimeout(() => {
+//       setIsLoading(false);
+//     }, 600000); // 600000 milliseconds = 10 minutes
+
+//     return () => clearTimeout(timer); // This will clear the timer if the component unmounts before the timer finishes
+//   }, []);
+
+//   if (isLoading) {
+//     return (
+//       <div className="flex flex-col justify-center items-center min-h-screen space-y-8">
+//         <div className="w-16 h-16 border-t-4 border-loader-blue bg-loader-background rounded-full animate-spin-slow"></div>
+//         <div className="text-center">
+//           <p className="font-serif text-2xl">"Confidence is the key to success."</p>
+//           <p className="font-serif text-2xl">"The only way to do great work is to love what you do."</p>
+//         </div>
+//       </div>
+//     );
+//   }
+  
+//   return (
+ 
+//   );
+// }
 
 
-const data = [
-  {
-    category: "Website",
-    stat: "10234",
-    data: good,
-  },
 
-]
-
-export default function PlaygroundPage() {
-  const value = 72;
-
-
+export default function Page() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -52,8 +67,8 @@ export default function PlaygroundPage() {
     return () => clearTimeout(timer); // This will clear the timer if the component unmounts before the timer finishes
   }, []);
 
-  if (isLoading) {
-    return (
+  return (
+    isLoading ? (
       <div className="flex flex-col justify-center items-center min-h-screen space-y-8">
         <div className="w-16 h-16 border-t-4 border-loader-blue bg-loader-background rounded-full animate-spin-slow"></div>
         <div className="text-center">
@@ -61,11 +76,9 @@ export default function PlaygroundPage() {
           <p className="font-serif text-2xl">"The only way to do great work is to love what you do."</p>
         </div>
       </div>
-    );
-  }
-  
-  return (
-    <main className="p-4 md:p-10 mx-auto max-w-7xl">
+    ) : (
+      // Your main content goes here
+      <main className="p-4 md:p-10 mx-auto max-w-7xl">
       <Grid numItemsSm={2} numItemsLg={2} className="gap-6">
         <Card key={data[0].category}>
           <Title>Tone Analysis</Title>
@@ -113,5 +126,6 @@ export default function PlaygroundPage() {
       </span>
     </ProgressCircle>
     </main>
+    )
   );
 }
